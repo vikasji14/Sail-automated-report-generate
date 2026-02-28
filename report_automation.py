@@ -449,7 +449,6 @@ def analyze_shift_impact(df, doc):
     # Shift performance by block
     shift_block = df.groupby(['Shift', 'Block'])['cobble_detected_status'].agg(['sum', 'count']).reset_index()
     shift_block['rate'] = (shift_block['sum'] / shift_block['count'] * 100).round(2)
-    
     pivot_table = shift_block.pivot(index='Block', columns='Shift', values='rate').fillna(0)
     
     plt.figure(figsize=(10, 6))
@@ -472,7 +471,7 @@ def analyze_shift_impact(df, doc):
     plt.title('Cobble Rate (%) by Profile and Shift')
     plt.tight_layout()
     buf = save_figure_to_memory()
-    add_chart_to_doc(doc, buf, "Cobble Rate by Profile and Shift")
+    add_chart_to_doc(doc, buf, "Cobble Rate by Profile and Shift") 
 
 def analyze_consecutive_events(df, doc):
     """Analyze patterns between consecutive cobble events"""
@@ -535,10 +534,10 @@ def analyze_consecutive_events(df, doc):
             block_seq.append((
                 cobble_events.iloc[i]['Block'],
                 cobble_events.iloc[i+1]['Block']
-            ))
+            ))  
         
         # Count repeated block sequences
-        block_transitions = {}
+        block_transitions = {} 
         for seq in block_seq:
             key = f"{seq[0]} → {seq[1]}"
             if key in block_transitions:
@@ -862,11 +861,15 @@ def main():
     # file_path = browse_file()
     
     # if not file_path:
-    #     print("No file selected. Exiting program.")
+    #     print("No file selected. Exiting program.") 
+
     #     return
-    
-    file_path = "data/03_03_2025_TMT.xlsx"
-    
+           
+    file_path = "data/cobble_data_feb.xlsx" 
+
+    # file_path = "automation_report_generate_data.xlsx"   
+
+     
     print(f"\nSelected file: {file_path}")
     
     # Load and preprocess data

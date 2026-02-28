@@ -39,14 +39,14 @@ If you encounter issues with your data files, use the data cleaning utility:
 
 1. Run the data cleaner:
    ```
-   python data_cleaner.py
+   python data_cleaner.py  //vikas select the excel file that needs cl
    ```
 2. Select the Excel file that needs cleaning
 3. Review the identified issues
 4. Save the cleaned file to use with the report generator
 
 ## Input Data Format
-
+     
 Your Excel file should have the following columns:
 - `Date`: Date of the event (MM/DD/YYYY format)
 - `Time`: Time of the event (standard time format like "1:30 PM" or "13:30")
@@ -62,3 +62,4 @@ Your Excel file should have the following columns:
 - Python 3.7+
 - 4GB RAM minimum (8GB recommended for large datasets)
 - Microsoft Word or compatible document viewer to open reports
+
